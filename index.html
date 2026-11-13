@@ -140,6 +140,12 @@
     .final-note strong{font-size:14px}.final-note p{font-size:11px;color:var(--muted);margin:5px 0 0;line-height:1.9}
     .foot{border-top:1px solid var(--line);padding:21px 0 30px;display:flex;gap:14px;justify-content:space-between;align-items:center;color:var(--soft);font-size:10px;direction:ltr}
     .foot strong{color:var(--text)}.foot em{color:var(--orange);font-style:normal}
+    .foot-views{display:inline-flex;align-items:center;gap:9px;direction:rtl;border:1px solid var(--line);background:var(--glass);border-radius:999px;padding:9px 13px;color:var(--muted);white-space:nowrap}
+    .foot-views svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--orange);stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+    .foot-views strong{color:var(--orange);font-weight:800;font-size:13px;min-width:1.2em;text-align:center;font-variant-numeric:tabular-nums}
+    html[lang="en"] .foot-views{direction:ltr}
+    @media(max-width:560px){.foot{flex-wrap:wrap;justify-content:center;text-align:center;gap:12px}.foot-views{margin-inline:auto}}
+
     .toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,16px);opacity:0;pointer-events:none;z-index:30;background:#1c302e;color:#e9fff9;border:1px solid rgba(120,231,201,.4);border-radius:12px;padding:11px 17px;font-size:12px;box-shadow:0 15px 35px rgba(0,0,0,.24);transition:.25s}
     .toast.show{opacity:1;transform:translate(-50%,0)}
     .line-icon{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -274,7 +280,7 @@
       <div class="final-note"><div><strong data-i18n="finalTitle">تواصل لبناء الفكرة التالية.</strong><p data-i18n="finalDesc">تجد حساباتي ووسائل التواصل المباشرة في الأعلى.</p></div><a class="cta secondary" href="#links"><span data-i18n="backLinks">روابط التواصل</span><svg class="line-icon"><use href="#i-arrow"/></svg></a></div>
     </div>
   </main>
-  <footer class="layout foot"><span>© <span id="year">2026</span> <strong data-i18n="footerName">أحمد الخالدي</strong><em>.</em> <span data-i18n="footerRights">جميع الحقوق محفوظة</span></span><span>DESIGN CONCEPT / REVISION 05</span></footer>
+  <footer class="layout foot"><span>© <span id="year">2026</span> <strong data-i18n="footerName">أحمد الخالدي</strong><em>.</em> <span data-i18n="footerRights">جميع الحقوق محفوظة</span></span><span class="foot-views" id="visit-badge" data-status="loading"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.7"/></svg><span data-i18n="visitsLabel">زيارات الصفحة</span><strong id="visit-count" aria-live="polite">—</strong></span></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script>
     (() => {
@@ -289,15 +295,15 @@
       let lang='ar',theme='dark',motion=!mq.matches;
       let w=0,h=0,dpr=1,points=[],raf=0,last=0;
       const t={
-        ar:{headerName:'أحمد الخالدي',profileName:'أحمد الخالدي',footerName:'أحمد الخالدي',navLinks:'التواصل',navCompany:'NMK.AI',navSkills:'الخبرات',profileRole:'شريك مؤسس ورئيس التقنية في NMK.AI · مطوّر وباحث تقني',presence:'هندسة الأنظمة والتقنيات الذكية',cardCaption:'هوية تقنية واحدة. خبرات متعددة.',heroOne:'أفهم الأنظمة من الداخل.',heroTwo:'وأبني ما بعدها.',heroDesc:'متخصص في الهندسة العكسية وتطوير تطبيقات iOS وAndroid والويب وإدارة قواعد البيانات وتدريب نماذج الذكاء الاصطناعي. شريك مؤسس ورئيس التقنية في NMK.AI.',factOne:'هندسة عكسية',factTwo:'تطوير متعدد المنصات',factThree:'أنظمة الذكاء الاصطناعي',linksTitle:'تواصل معي.',linksSide:'اختر المنصة المناسبة',companyHeading:'القيادة التقنية.',companyTitle:'تقنيات تعيد تعريف تجربة القيادة.',companyDesc:'NMK.AI شركة سعودية متخصصة في حلول الذكاء الاصطناعي للمركبات وأنظمة مساعدة السائق المتقدمة (ADAS)، وتطوير القائد الآلي، وإدارة الأساطيل الذكية، وحلول دمج التقنية للمصنّعين.',visitCompany:'زيارة موقع NMK.AI',skillsHeading:'مجالات الخبرة.',skillsSide:'خمسة تخصصات تقنية',skill1:'تحليل البرامج والبروتوكولات والأنظمة وفهم آليات عملها الداخلية.',skill2:'تطوير تطبيقات وحلول الهواتف المحمولة.',skill3:'بناء واجهات وخدمات ومواقع ويب حديثة.',skill4:'إدارة قواعد البيانات وبنيتها وأدائها.',skill5:'تدريب نماذج الذكاء الاصطناعي وتطوير تطبيقاتها.',finalTitle:'تواصل لبناء الفكرة التالية.',finalDesc:'تجد حساباتي ووسائل التواصل المباشرة في الأعلى.',backLinks:'روابط التواصل',footerRights:'جميع الحقوق محفوظة'},
-        en:{headerName:'Ahmed Al-Khaldi',profileName:'Ahmed Al-Khaldi',footerName:'Ahmed Al-Khaldi',navLinks:'Connect',navCompany:'NMK.AI',navSkills:'Expertise',profileRole:'Co-Founder & CTO at NMK.AI · Developer & Technology Researcher',presence:'Engineering · Intelligent systems',cardCaption:'One digital identity. Multiple disciplines.',heroOne:'Beyond the code.',heroTwo:'Into the system.',heroDesc:'Specializing in reverse engineering, iOS & Android apps, web development, database administration, and AI model training. Co-Founder & CTO at NMK.AI.',factOne:'Reverse engineering',factTwo:'Cross-platform development',factThree:'AI systems',linksTitle:"Let's connect.",linksSide:'Choose your platform',companyHeading:'Technology leadership.',companyTitle:'Technology redefining the driving experience.',companyDesc:'NMK.AI is a Saudi company developing AI solutions for vehicles, advanced driver-assistance systems (ADAS), autopilot technology, intelligent fleet management, and automotive manufacturing integration solutions.',visitCompany:'Visit NMK.AI website',skillsHeading:'Areas of expertise.',skillsSide:'Five technical disciplines',skill1:'Analyzing software, protocols, and systems to understand their inner workings.',skill2:'Developing mobile applications and solutions.',skill3:'Building modern web interfaces, services, and websites.',skill4:'Managing database architecture, operations, and performance.',skill5:'Training AI models and developing intelligent applications.',finalTitle:"Let's build what comes next.",finalDesc:'Find all my profiles and direct contact options above.',backLinks:'Contact links',footerRights:'All rights reserved'}
+        ar:{headerName:'أحمد الخالدي',profileName:'أحمد الخالدي',footerName:'أحمد الخالدي',navLinks:'التواصل',navCompany:'NMK.AI',navSkills:'الخبرات',profileRole:'شريك مؤسس ورئيس التقنية في NMK.AI · مطوّر وباحث تقني',presence:'هندسة الأنظمة والتقنيات الذكية',cardCaption:'هوية تقنية واحدة. خبرات متعددة.',heroOne:'أفهم الأنظمة من الداخل.',heroTwo:'وأبني ما بعدها.',heroDesc:'متخصص في الهندسة العكسية وتطوير تطبيقات iOS وAndroid والويب وإدارة قواعد البيانات وتدريب نماذج الذكاء الاصطناعي. شريك مؤسس ورئيس التقنية في NMK.AI.',factOne:'هندسة عكسية',factTwo:'تطوير متعدد المنصات',factThree:'أنظمة الذكاء الاصطناعي',linksTitle:'تواصل معي.',linksSide:'اختر المنصة المناسبة',companyHeading:'القيادة التقنية.',companyTitle:'تقنيات تعيد تعريف تجربة القيادة.',companyDesc:'NMK.AI شركة سعودية متخصصة في حلول الذكاء الاصطناعي للمركبات وأنظمة مساعدة السائق المتقدمة (ADAS)، وتطوير القائد الآلي، وإدارة الأساطيل الذكية، وحلول دمج التقنية للمصنّعين.',visitCompany:'زيارة موقع NMK.AI',skillsHeading:'مجالات الخبرة.',skillsSide:'خمسة تخصصات تقنية',skill1:'تحليل البرامج والبروتوكولات والأنظمة وفهم آليات عملها الداخلية.',skill2:'تطوير تطبيقات وحلول الهواتف المحمولة.',skill3:'بناء واجهات وخدمات ومواقع ويب حديثة.',skill4:'إدارة قواعد البيانات وبنيتها وأدائها.',skill5:'تدريب نماذج الذكاء الاصطناعي وتطوير تطبيقاتها.',finalTitle:'تواصل لبناء الفكرة التالية.',finalDesc:'تجد حساباتي ووسائل التواصل المباشرة في الأعلى.',backLinks:'روابط التواصل',footerRights:'جميع الحقوق محفوظة',visitsLabel:'زيارات الصفحة'},
+        en:{headerName:'Ahmed Al-Khaldi',profileName:'Ahmed Al-Khaldi',footerName:'Ahmed Al-Khaldi',navLinks:'Connect',navCompany:'NMK.AI',navSkills:'Expertise',profileRole:'Co-Founder & CTO at NMK.AI · Developer & Technology Researcher',presence:'Engineering · Intelligent systems',cardCaption:'One digital identity. Multiple disciplines.',heroOne:'Beyond the code.',heroTwo:'Into the system.',heroDesc:'Specializing in reverse engineering, iOS & Android apps, web development, database administration, and AI model training. Co-Founder & CTO at NMK.AI.',factOne:'Reverse engineering',factTwo:'Cross-platform development',factThree:'AI systems',linksTitle:"Let's connect.",linksSide:'Choose your platform',companyHeading:'Technology leadership.',companyTitle:'Technology redefining the driving experience.',companyDesc:'NMK.AI is a Saudi company developing AI solutions for vehicles, advanced driver-assistance systems (ADAS), autopilot technology, intelligent fleet management, and automotive manufacturing integration solutions.',visitCompany:'Visit NMK.AI website',skillsHeading:'Areas of expertise.',skillsSide:'Five technical disciplines',skill1:'Analyzing software, protocols, and systems to understand their inner workings.',skill2:'Developing mobile applications and solutions.',skill3:'Building modern web interfaces, services, and websites.',skill4:'Managing database architecture, operations, and performance.',skill5:'Training AI models and developing intelligent applications.',finalTitle:"Let's build what comes next.",finalDesc:'Find all my profiles and direct contact options above.',backLinks:'Contact links',footerRights:'All rights reserved',visitsLabel:'Page visits'}
       };
       function updateLanguage(){root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{
         const val=t[lang][el.dataset.i18n];if(val===undefined)return;
         if(['linksTitle','companyHeading','skillsHeading'].includes(el.dataset.i18n)){
           el.textContent=val.slice(0,-1);const dot=document.createElement('span');dot.textContent='.';dot.style.color='var(--orange)';el.appendChild(dot);
         }else el.textContent=val;
-      });document.querySelector('meta[name=description]').setAttribute('content',lang==='ar'?'أحمد الخالدي | شريك مؤسس ورئيس التقنية في NMK.AI، متخصص في الهندسة العكسية وتطوير التطبيقات والويب وقواعد البيانات وتدريب نماذج الذكاء الاصطناعي.':'Ahmed Al-Khaldi | Co-Founder & CTO at NMK.AI. Reverse engineering, iOS & Android, web, database administration and AI model training.');langBtn.textContent=lang==='ar'?'EN':'عربي';langBtn.setAttribute('aria-label',lang==='ar'?'Switch to English':'التبديل للعربية');document.title=lang==='ar'?'أحمد الخالدي — الهوية الرقمية':'Ahmed Al-Khaldi — Digital Identity';updateMotionLabel()}
+      });document.querySelector('meta[name=description]').setAttribute('content',lang==='ar'?'أحمد الخالدي | شريك مؤسس ورئيس التقنية في NMK.AI، متخصص في الهندسة العكسية وتطوير التطبيقات والويب وقواعد البيانات وتدريب نماذج الذكاء الاصطناعي.':'Ahmed Al-Khaldi | Co-Founder & CTO at NMK.AI. Reverse engineering, iOS & Android, web, database administration and AI model training.');langBtn.textContent=lang==='ar'?'EN':'عربي';langBtn.setAttribute('aria-label',lang==='ar'?'Switch to English':'التبديل للعربية');document.title=lang==='ar'?'أحمد الخالدي — الهوية الرقمية':'Ahmed Al-Khaldi — Digital Identity';updateMotionLabel();renderVisitCount()}
       function updateTheme(){root.dataset.theme=theme;themeBtn.innerHTML=theme==='dark'?'<svg><use href="#i-sun"/></svg>':'<svg><use href="#i-moon"/></svg>';themeBtn.setAttribute('aria-label',theme==='dark'?(lang==='ar'?'الوضع الفاتح':'Light mode'):(lang==='ar'?'الوضع الداكن':'Dark mode'));document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#080d14':'#f4f5f4';draw(performance.now())}
       function updateMotionLabel(){const label=motion?(lang==='ar'?'إيقاف حركة الخلفية':'Pause background motion'):(lang==='ar'?'تشغيل حركة الخلفية':'Resume background motion');motionBtn.title=label;motionBtn.setAttribute('aria-label',label);motionBtn.setAttribute('aria-pressed',String(motion));motionBtn.innerHTML=motion?'<svg><use href="#i-pause"/></svg>':'<svg><use href="#i-motion"/></svg>'}
       function applyMotion(){document.body.classList.toggle('motion-off',!motion);document.body.classList.toggle('motion-opt-in',motion&&mq.matches);updateMotionLabel();cancelAnimationFrame(raf);last=0;draw(performance.now());if(motion&&ctx&&!document.hidden)raf=requestAnimationFrame(frame)}
@@ -322,8 +328,40 @@
       window.addEventListener('resize',resize,{passive:true});
       document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);if(!document.hidden&&motion)raf=requestAnimationFrame(frame)});
       const motionChange=e=>{motion=!e.matches;applyMotion()};if(mq.addEventListener)mq.addEventListener('change',motionChange);else if(mq.addListener)mq.addListener(motionChange);
+      // Public session counter: never embeds secrets or collects visitor identifiers.
+      const visitDisplay=document.getElementById('visit-count');
+      const visitBadge=document.getElementById('visit-badge');
+      const visitKey='ahmad0dev_githubio_sessions_nov2026';
+      const visitStorageKey='ahmad0dev_page_visit_session_v1';
+      let visitTotal=null;
+      function renderVisitCount(){
+        if(visitTotal!==null && visitDisplay){
+          visitDisplay.textContent=new Intl.NumberFormat(lang==='ar'?'ar-SA':'en-US').format(visitTotal);
+        }
+      }
+      async function loadVisitCount(){
+        if(!visitDisplay||!visitBadge)return;
+        let counted=false;
+        try{counted=sessionStorage.getItem(visitStorageKey)==='1'}catch(e){}
+        const endpoint='https://countapi.mileshilliard.com/api/v1/'+(counted?'get/':'hit/')+visitKey;
+        try{
+          const response=await fetch(endpoint,{mode:'cors',cache:'no-store'});
+          if(!response.ok)throw new Error('Counter unavailable');
+          const data=await response.json();
+          const number=Number(data.value);
+          if(!Number.isSafeInteger(number)||number<0)throw new Error('Invalid count');
+          if(!counted){try{sessionStorage.setItem(visitStorageKey,'1')}catch(e){}}
+          visitTotal=number;
+          visitBadge.dataset.status='ready';
+          renderVisitCount();
+        }catch(e){
+          visitBadge.dataset.status='unavailable';
+          visitDisplay.textContent='—';
+          visitBadge.title=lang==='ar'?'الإحصائية غير متاحة مؤقتًا':'Counter temporarily unavailable';
+        }
+      }
       document.getElementById('year').textContent=new Date().getFullYear();
-      updateLanguage();updateTheme();resize();applyMotion();
+      updateLanguage();updateTheme();resize();applyMotion();loadVisitCount();
     })();
   </script>
 </body>
