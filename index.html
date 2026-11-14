@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#080d14">
-  <meta name="description" content="أحمد الخالدي | شريك مؤسس ورئيس التقنية في NMK.AI، متخصص في الهندسة العكسية وتطوير التطبيقات والويب وقواعد البيانات وتدريب نماذج الذكاء الاصطناعي.">
-  <title>أحمد الخالدي — الهوية الرقمية</title>
+  <meta name="description" content="Ahmed Al-Khaldi | Co-Founder & CTO at NMK.AI. Reverse engineering, iOS & Android, web, database administration and AI model training.">
+  <title>Ahmed Al-Khaldi — Digital Identity</title>
   <style>
     :root{
       font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Tahoma,Arial,sans-serif;
@@ -209,14 +209,14 @@
   </svg>
   <header class="site-header">
     <div class="layout header-inner">
-      <span class="header-identity" data-i18n="headerName">أحمد الخالدي</span>
+      <span class="header-identity" data-i18n="headerName">Ahmed Al-Khaldi</span>
       <nav class="site-nav" aria-label="Site sections">
         <a href="#links" data-i18n="navLinks">التواصل</a>
         <a href="#nmk" data-i18n="navCompany">NMK.AI</a>
         <a href="#expertise" data-i18n="navSkills">الخبرات</a>
       </nav>
       <div class="controls">
-        <button class="tool" id="language-toggle" type="button" title="Switch language" aria-label="Switch language">EN</button>
+        <button class="tool" id="language-toggle" type="button" title="التبديل للعربية" aria-label="التبديل للعربية">عربي</button>
         <button class="tool" id="motion-toggle" type="button" title="إيقاف حركة الخلفية" aria-pressed="true" aria-label="إيقاف حركة الخلفية"><svg><use href="#i-pause"/></svg></button>
         <button class="tool" id="theme-toggle" type="button" title="الوضع الفاتح" aria-label="الوضع الفاتح"><svg><use href="#i-sun"/></svg></button>
       </div>
@@ -312,7 +312,7 @@
       const canvas=document.getElementById('network-canvas');
       const ctx=canvas.getContext ? canvas.getContext('2d',{alpha:true}) : null;
       const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
-      let lang='ar',theme='dark',motion=!mq.matches;
+      let lang='en',theme='dark',motion=!mq.matches;
       let w=0,h=0,dpr=1,points=[],raf=0,last=0;
       const t={
         ar:{headerName:'أحمد الخالدي',profileName:'أحمد الخالدي',footerName:'أحمد الخالدي',navLinks:'التواصل',navCompany:'NMK.AI',navSkills:'الخبرات',profileRole:'شريك مؤسس ورئيس التقنية في NMK.AI · مطوّر وباحث تقني',presence:'هندسة الأنظمة والتقنيات الذكية',cardCaption:'هوية تقنية واحدة. خبرات متعددة.',heroOne:'أفهم الأنظمة من الداخل.',heroTwo:'وأبني ما بعدها.',heroDesc:'متخصص في الهندسة العكسية وتطوير تطبيقات iOS وAndroid والويب وإدارة قواعد البيانات وتدريب نماذج الذكاء الاصطناعي. شريك مؤسس ورئيس التقنية في NMK.AI.',factOne:'هندسة عكسية',factTwo:'تطوير متعدد المنصات',factThree:'أنظمة الذكاء الاصطناعي',linksTitle:'تواصل معي.',linksSide:'اختر المنصة المناسبة',saveContactTitle:'إضافة رقمي إلى جهات الاتصال',saveContactDesc:'أحمد الخالدي · رقم الهاتف ونبذة عن خبراتي',companyHeading:'القيادة التقنية.',companyTitle:'تقنيات تعيد تعريف تجربة القيادة.',companyDesc:'NMK.AI شركة سعودية متخصصة في حلول الذكاء الاصطناعي للمركبات وأنظمة مساعدة السائق المتقدمة (ADAS)، وتطوير القائد الآلي، وإدارة الأساطيل الذكية، وحلول دمج التقنية للمصنّعين.',visitCompany:'زيارة موقع NMK.AI',skillsHeading:'مجالات الخبرة.',skillsSide:'خمسة تخصصات تقنية',skill1:'تحليل البرامج والبروتوكولات والأنظمة وفهم آليات عملها الداخلية.',skill2:'تطوير تطبيقات وحلول الهواتف المحمولة.',skill3:'بناء واجهات وخدمات ومواقع ويب حديثة.',skill4:'إدارة قواعد البيانات وبنيتها وأدائها.',skill5:'تدريب نماذج الذكاء الاصطناعي وتطوير تطبيقاتها.',finalTitle:'تواصل لبناء الفكرة التالية.',finalDesc:'تجد حساباتي ووسائل التواصل المباشرة في الأعلى.',backLinks:'روابط التواصل',footerRights:'جميع الحقوق محفوظة',visitsLabel:'زيارات الصفحة'},
